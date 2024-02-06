@@ -2,6 +2,8 @@ from selene.support import by
 from selene.support.conditions import be
 from selene.support.shared import browser
 import allure
+from utils.dec_steps import open_git_main_page, open_issue_tab, search_repository, go_to_repository, \
+    should_see_issue_with_number
 
 
 def test_dynamic_steps():
@@ -23,3 +25,11 @@ def test_dynamic_steps():
 
     with allure.step('Проверить наличие issue 76'):
         browser.element(by.partial_text("#76")).should(be.visible)
+
+
+def test_decorator_steps():
+    open_git_main_page()
+    search_repository("eroshenkoam/allure-example")
+    go_to_repository("eroshenkoam/allure-example")
+    open_issue_tab()
+    should_see_issue_with_number("#76")

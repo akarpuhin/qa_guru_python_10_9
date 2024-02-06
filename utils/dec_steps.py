@@ -3,12 +3,6 @@ from selene.support.conditions import be
 from selene.support.shared import browser
 import allure
 
-def test_decorator_steps():
-    open_git_main_page()
-    search_repository("eroshenkoam/allure-example")
-    go_to_repository("eroshenkoam/allure-example")
-    open_issue_tab()
-    should_see_issue_with_number("#76")
 
 @allure.step("Открыть главную страницу github")
 def open_git_main_page():
