@@ -13,7 +13,7 @@ def open_git_main_page():
 
 @allure.step("Найти репозиторий {repo}")
 def search_repository(repo):
-    browser.element(".header-search-button").click()
+    browser.element(".search-input").click()
     browser.element("#query-builder-test").send_keys(repo)
     browser.element("#query-builder-test").submit()
 
